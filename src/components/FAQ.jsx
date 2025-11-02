@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useTheme } from '../context/ThemeContext.jsx'
 
 export default function FAQ() {
+  const { isDark } = useTheme()
   const [openIndex, setOpenIndex] = useState(0)
 
   const faqs = [
@@ -88,7 +90,7 @@ export default function FAQ() {
             <p className="text-slate-600 dark:text-gray-300 mb-6">
               I'm here to help! Get in touch and I'll answer any questions about your project.
             </p>
-            <a href="#contact" className="inline-flex items-center justify-center rounded-lg bg-primary text-white px-8 py-3 font-semibold hover:bg-primary-dark transition-colors">
+            <a href="#contact" className="inline-flex items-center justify-center rounded-lg bg-black text-white px-8 py-3 font-semibold hover:bg-gray-800 transition-colors">
               Contact Me
             </a>
           </div>

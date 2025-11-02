@@ -1,7 +1,9 @@
 import React from 'react'
 import { SITE } from '../config/site.js'
+import { useTheme } from '../context/ThemeContext.jsx'
 
 export default function Footer() {
+  const { isDark } = useTheme()
   const services = [
     { name: 'Business Websites', href: '#services' },
     { name: 'Online Stores', href: '#services' },
@@ -32,7 +34,9 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className={`transition-colors duration-300 ${
+      isDark ? 'bg-gray-950 text-white' : 'bg-black text-white'
+    }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -46,25 +50,25 @@ export default function Footer() {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                      <span className="text-white text-sm">📱</span>
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                      <span className="text-black text-sm">📱</span>
                     </div>
                     <div>
                       <div className="font-medium">WhatsApp</div>
                       <a href={`https://wa.me/${SITE.whatsappNumberIntl}?text=Hi%20Akib%2C%20I%20want%20a%20website`} 
-                         className="text-gray-300 hover:text-primary transition-colors">
+                         className="text-gray-300 hover:text-white transition-colors">
                         Quick Response
                       </a>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                      <span className="text-white text-sm">✉️</span>
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                      <span className="text-black text-sm">✉️</span>
                     </div>
                     <div>
                       <div className="font-medium">Email</div>
                       <a href={`mailto:${SITE.contactEmail}`} 
-                         className="text-gray-300 hover:text-primary transition-colors">
+                         className="text-gray-300 hover:text-white transition-colors">
                         {SITE.contactEmail}
                       </a>
                     </div>
@@ -80,7 +84,7 @@ export default function Footer() {
                 {services.map((service) => (
                   <li key={service.name}>
                     <a href={service.href} 
-                       className="text-gray-300 hover:text-primary transition-colors">
+                       className="text-gray-300 hover:text-white transition-colors">
                       {service.name}
                     </a>
                   </li>
@@ -95,7 +99,7 @@ export default function Footer() {
                 {company.map((item) => (
                   <li key={item.name}>
                     <a href={item.href} 
-                       className="text-gray-300 hover:text-primary transition-colors">
+                       className="text-gray-300 hover:text-white transition-colors">
                       {item.name}
                     </a>
                   </li>
@@ -119,20 +123,20 @@ export default function Footer() {
                   <a href={SITE.socials.linkedin} 
                      target="_blank" 
                      rel="noopener" 
-                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                    <span className="text-sm">💼</span>
+                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-white transition-colors group">
+                    <span className="text-sm group-hover:text-black">💼</span>
                   </a>
                   <a href={SITE.socials.github} 
                      target="_blank" 
                      rel="noopener" 
-                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                    <span className="text-sm">💻</span>
+                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-white transition-colors group">
+                    <span className="text-sm group-hover:text-black">💻</span>
                   </a>
                   <a href={SITE.socials.instagram} 
                      target="_blank" 
                      rel="noopener" 
-                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                    <span className="text-sm">📸</span>
+                     className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-white transition-colors group">
+                    <span className="text-sm group-hover:text-black">📸</span>
                   </a>
                 </div>
               </div>
@@ -149,7 +153,7 @@ export default function Footer() {
             <div className="flex items-center gap-6 text-sm text-gray-400">
               <span>Made with ❤️ for Indian businesses</span>
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span className="w-2 h-2 bg-white rounded-full"></span>
                 <span>Available for new projects</span>
               </div>
             </div>
@@ -158,22 +162,22 @@ export default function Footer() {
 
         {/* Call to Action Banner */}
         <div className="border-t border-gray-800 py-8">
-          <div className="bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-8 text-center">
-            <h3 className="font-heading text-2xl font-bold text-white mb-4">
+          <div className="bg-white rounded-2xl p-8 text-center">
+            <h3 className="font-heading text-2xl font-bold text-black mb-4">
               Ready to Put Your Business Online?
             </h3>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Join 100+ Indian businesses who trust Akibworks for their website needs. Complete solution from ₹8,000.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#contact" 
-                 className="inline-flex items-center justify-center rounded-lg bg-white text-primary px-8 py-4 font-semibold hover:bg-gray-100 transition-colors">
+                 className="inline-flex items-center justify-center rounded-lg bg-black text-white px-8 py-4 font-semibold hover:bg-gray-800 transition-colors">
                 Get Your Website
               </a>
               <a href={`https://wa.me/${SITE.whatsappNumberIntl}?text=Hi%20Akib%2C%20I%20want%20a%20website%20for%20my%20business`} 
                  target="_blank" 
                  rel="noopener"
-                 className="inline-flex items-center justify-center rounded-lg border-2 border-white text-white px-8 py-4 font-semibold hover:bg-white hover:text-primary transition-colors">
+                 className="inline-flex items-center justify-center rounded-lg border-2 border-black text-black px-8 py-4 font-semibold hover:bg-black hover:text-white transition-colors">
                 WhatsApp Now
               </a>
             </div>
